@@ -1,0 +1,27 @@
+﻿.button {
+    color: white;
+    background: #269ed5;
+    border: none;
+    padding: 14px 50px;
+    font-size: 20px;
+    border-radius: 2px;
+    margin: 7px;
+    font-family: 'Lato', sans-serif;
+    cursor: pointer;
+    text-transform: uppercase;
+    transition: 0.5s all;
+    width: 160px;
+}
+
+.row-container{
+    display: flex;
+    height: 500px;
+}
+
+input{
+    width: 60px;
+}
+
+.chartContainer {
+    width: 65%;
+}
