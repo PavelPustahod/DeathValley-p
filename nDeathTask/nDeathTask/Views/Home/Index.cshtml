@@ -1,0 +1,59 @@
+﻿@model nDeathTask.Models.ParabolaCoefficients
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>View</title>
+    <link rel="stylesheet" href="~/Content/Site.css">
+</head>
+<body>
+    <div class="row-container">
+        <div id="chartContainer" class="chartContainer"></div>
+
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+
+            <div>
+                Function: y = @Html.EditorFor(model => model.ACoeff)x^2+
+                @Html.EditorFor(model => model.BCoeff)
+                x+@Html.EditorFor(model => model.CCoeff)
+                <br />
+                Step:  @Html.EditorFor(model => model.Step)
+                <br />
+                From:  @Html.EditorFor(model => model.LowerBorder) to @Html.EditorFor(model => model.UpperBorder)
+                <br />
+                <input class="button" type="submit" value="Plot" />
+                @Html.ValidationSummary()
+            </div>
+        }
+    </div>
+
+    <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+    <script>
+        window.onload = function () {
+            var chart = new CanvasJS.Chart("chartContainer", {
+	            animationEnabled: true,
+	            title: {
+		            text: "Parabola"
+	            },
+                axisX: {
+                    title: "X",
+                },
+                axisY: {
+                    title: "Y",
+                    includeZero: true
+                },
+	            data: [{
+		            type: "spline",
+                    yValueFormatString: "##",
+                    xValueFormatString: "##",
+		            dataPoints: @Html.Raw(ViewBag.DataPoints)
+	            }]
+            });
+            chart.render();
+        }
+    </script>
+</body>
+</html>
