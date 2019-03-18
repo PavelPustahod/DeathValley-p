@@ -11,6 +11,7 @@ namespace nDeathTask
     {
         protected void Application_Start()
         {
+            DataAnnotationsModelValidatorProvider.AddImplicitRequiredAttributeForValueTypes = false;
             AreaRegistration.RegisterAllAreas();
             RouteConfig.RegisterRoutes(RouteTable.Routes);
         }

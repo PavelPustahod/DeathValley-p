@@ -13,15 +13,20 @@
     width: 160px;
 }
 
-.row-container{
+.row-container {
     display: flex;
     height: 500px;
 }
 
-input{
+input {
     width: 60px;
 }
 
 .chartContainer {
     width: 65%;
+}
+
+.validation-summary-errors {
+    color: red;
+    font-family: 'Lato', sans-serif;
 }
